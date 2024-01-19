@@ -14,13 +14,15 @@ import TypeListScroll from "./TypeListScroll";
 import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-function renderListItem({ item, index }) {
+function renderListItem({ item, navigation }) {
   const lastItem = item.last === true;
   const { title, image } = item;
-
+  const pressHandler = () => {
+    navigation.navigate("GameDetail");
+  };
   return (
     <View style={[styles.gridItem, { maxWidth: lastItem ? "42%" : "50%" }]}>
-      <Pressable style={{ flex: 1 }}>
+      <Pressable style={{ flex: 1 }} onPress={pressHandler}>
         <View style={styles.imageContainer}>
           <ImageBackground
             source={{
@@ -56,7 +58,7 @@ function renderListItem({ item, index }) {
   );
 }
 
-function List() {
+function List({ navigation }) {
   const gameType = useSelector((state) => state.filteredGames.type);
   console.log(gameType);
 
@@ -87,7 +89,7 @@ function List() {
         <FlatList
           data={item.list}
           numColumns={2}
-          renderItem={renderListItem}
+          renderItem={({ item }) => renderListItem({ item, navigation })}
           keyExtractor={item.title}
         />
       )}

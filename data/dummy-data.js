@@ -131,4 +131,12 @@ export const genre = [
   { text: "RPG", type: "rpg" },
   { text: "시뮬레이션", type: "simulation" },
   { text: "전략", type: "strategy" },
+  { text: "아무거나", type: "strategys" },
+  { text: "아무거나2", type: "strategysss" },
+  { text: "아무거나3", type: "strategysssfs" },
+  { text: "아무거나4", type: "strategyssdss" },
+  { text: "아무거나5", type: "strategysssds" },
+  { text: "아무거나6", type: "strategyssssss" },
+  { text: "아무거나244", type: "str2ategysss" },
+  { text: "아무거나244", type: "strateg3ysss" },
 ];

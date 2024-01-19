@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Dimensions,
 } from "react-native";
 import { genre } from "../data/dummy-data";
 import { useEffect, useState } from "react";
@@ -20,7 +21,9 @@ const TypeListScroll = (props) => {
 
   return (
     <View style={styles.all_container}>
-      <Text style={styles.tagText}>Tag</Text>
+      <View>
+        <Text style={styles.tagText}>Tag</Text>
+      </View>
       <ScrollView
         contentContainerStyle={styles.menuContainer_title}
         horizontal={true}
@@ -48,6 +51,9 @@ const TypeListScroll = (props) => {
 };
 
 export default TypeListScroll;
+
+const deviceWidth = Dimensions.get("window").height;
+
 const styles = StyleSheet.create({
   all_container: {
     flex: 1,
@@ -61,6 +67,7 @@ const styles = StyleSheet.create({
   menuContainer_title: {
     height: 50,
     alignItems: "center",
+    paddingHorizontal: 10,
   },
   type_container: {
     flex: 1,

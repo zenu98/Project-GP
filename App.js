@@ -1,13 +1,24 @@
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View, StatusBar } from "react-native";
 import GameList from "./screens/GameList";
+import GameDetail from "./screens/GameDetail";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+const Stack = createStackNavigator();
+
 export default function App() {
   return (
     <Provider store={store}>
       <SafeAreaView style={styles.root}>
-        <GameList />
+        <StatusBar />
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="GameList" component={GameList} />
+            <Stack.Screen name="GameDetail" component={GameDetail} />
+          </Stack.Navigator>
+        </NavigationContainer>
       </SafeAreaView>
     </Provider>
   );
@@ -16,7 +27,6 @@ export default function App() {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    paddingTop: 30,
   },
   container: {
     backgroundColor: "#fff",

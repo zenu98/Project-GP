@@ -2,14 +2,14 @@ import { StyleSheet, Text, View } from "react-native";
 import NavigationBar from "../components/NavigationBar";
 import List from "../components/List";
 
-function GameList() {
+function GameList({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.nav_Container}>
         <NavigationBar />
       </View>
       <View style={styles.listContainer}>
-        <List />
+        <List navigation={navigation} />
       </View>
     </View>
   );
@@ -20,7 +20,6 @@ export default GameList;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#abc",
   },
   nav_Container: {
     flex: 1,
