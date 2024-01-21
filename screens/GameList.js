@@ -26,13 +26,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     justifyContent: "center",
   },
-  menuContainer_title: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    backgroundColor: "",
-  },
+
   listContainer: {
     flex: 6,
     backgroundColor: "#fff",

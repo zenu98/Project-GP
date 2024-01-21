@@ -1,7 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import gameReducer from "./games";
+import typeReducer from "./types";
+import GameDataReducer from "./gameData";
 export const store = configureStore({
   reducer: {
-    filteredGames: gameReducer,
+    filteredGames: typeReducer,
+    gameData: GameDataReducer,
   },
 });

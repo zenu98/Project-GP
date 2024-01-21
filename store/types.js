@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const gamesSlice = createSlice({
-  name: "games",
+const typeSlice = createSlice({
+  name: "type",
   initialState: {
     type: "all",
   },
@@ -12,5 +12,5 @@ const gamesSlice = createSlice({
   },
 });
 
-export const filterGames = gamesSlice.actions.filterGames;
-export default gamesSlice.reducer;
+export const filterGames = typeSlice.actions.filterGames;
+export default typeSlice.reducer;

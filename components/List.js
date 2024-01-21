@@ -1,66 +1,11 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  Pressable,
-  SectionList,
-  Image,
-  ImageBackground,
-} from "react-native";
-import { CATEGORIES } from "../data/dummy-data";
-import GridItem from "./GridItem";
+import { StyleSheet, Text, View, FlatList, SectionList } from "react-native";
 import TypeListScroll from "./TypeListScroll";
-import { LinearGradient } from "expo-linear-gradient";
-import { useState } from "react";
 import { useSelector } from "react-redux";
-function renderListItem({ item, navigation }) {
-  const lastItem = item.last === true;
-  const { title, image } = item;
-  const pressHandler = () => {
-    navigation.navigate("GameDetail");
-  };
-  return (
-    <View style={[styles.gridItem, { maxWidth: lastItem ? "42%" : "50%" }]}>
-      <Pressable style={{ flex: 1 }} onPress={pressHandler}>
-        <View style={styles.imageContainer}>
-          <ImageBackground
-            source={{
-              uri: image,
-            }}
-            style={styles.image}
-            onError={({ nativeEvent: { error } }) => console.warn(error)}
-          >
-            <LinearGradient
-              colors={["transparent", "black"]}
-              style={{
-                flex: 0.25,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Text
-                numberOfLines={1}
-                style={{
-                  margin: 1,
-                  fontWeight: 700,
-                  fontSize: 18,
-                  color: "white",
-                }}
-              >
-                {title}
-              </Text>
-            </LinearGradient>
-          </ImageBackground>
-        </View>
-      </Pressable>
-    </View>
-  );
-}
+import renderListItem from "./RenderListItem";
 
 function List({ navigation }) {
   const gameType = useSelector((state) => state.filteredGames.type);
-  console.log(gameType);
+  const gameData = useSelector((state) => state.gameData.data).CATEGORIES;
 
   const filteredData = (data) => {
     if (gameType === "all") return data;
@@ -69,17 +14,19 @@ function List({ navigation }) {
     }
   };
 
-  const filteredSections = CATEGORIES.filter((category) => {
-    const filteredItems = filteredData(category.data[0].list);
-    return filteredItems && filteredItems.length > 0;
-  }).map((filtered) => {
-    const filteredItems = filteredData(filtered.data[0].list);
+  const filteredSections = gameData
+    .filter((category) => {
+      const filteredItems = filteredData(category.data[0].list);
+      return filteredItems && filteredItems.length > 0;
+    })
+    .map((filtered) => {
+      const filteredItems = filteredData(filtered.data[0].list);
 
-    return {
-      ...filtered,
-      data: [{ list: filteredItems }],
-    };
-  });
+      return {
+        ...filtered,
+        data: [{ list: filteredItems }],
+      };
+    });
 
   return (
     <SectionList

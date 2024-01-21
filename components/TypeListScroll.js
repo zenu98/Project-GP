@@ -10,7 +10,7 @@ import {
 import { genre } from "../data/dummy-data";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterGames } from "../store/games";
+import { filterGames } from "../store/types";
 const TypeListScroll = (props) => {
   const gameType = useSelector((state) => state.filteredGames.type);
   const dispatch = useDispatch();
