@@ -9,6 +9,7 @@ import {
   ImageBackground,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+
 function renderListItem({ item, navigation }) {
   const lastItem = item.last === true;
   const { title, image } = item;
