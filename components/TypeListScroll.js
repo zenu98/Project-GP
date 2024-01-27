@@ -7,7 +7,7 @@ import {
   View,
   Dimensions,
 } from "react-native";
-import { genre } from "../data/dummy-data";
+import { category } from "../data/dummy-data";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterGames } from "../store/types";
@@ -29,17 +29,17 @@ const TypeListScroll = (props) => {
         horizontal={true}
         showsHorizontalScrollIndicator={false}
       >
-        {genre.map((item) => (
+        {category.map((item) => (
           <Pressable
-            onPress={() => pressHandler(item.type)}
-            key={item.type}
+            onPress={() => pressHandler(item.genre)}
+            key={item.genre}
             style={[
               styles.type_container,
-              gameType === item.type && styles.type_container_pressed,
+              gameType === item.genre && styles.type_container_pressed,
             ]}
           >
             <View>
-              <Text style={gameType === item.type && { color: "white" }}>
+              <Text style={gameType === item.genre && { color: "white" }}>
                 {item.text}
               </Text>
             </View>

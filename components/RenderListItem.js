@@ -11,7 +11,6 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 
 function renderListItem({ item, navigation }) {
-  const lastItem = item.last === true;
   const { title, image } = item;
   const pressHandler = () => {
     navigation.navigate("GameDetail", {
@@ -19,7 +18,7 @@ function renderListItem({ item, navigation }) {
     });
   };
   return (
-    <View style={[styles.gridItem, { maxWidth: lastItem ? "42%" : "50%" }]}>
+    <View style={[styles.gridItem]}>
       <Pressable style={{ flex: 1 }} onPress={pressHandler}>
         <View style={styles.imageContainer}>
           <ImageBackground
@@ -62,7 +61,8 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flex: 1 / 2,
-    margin: 14,
+    maxWidth: "50%",
+    padding: 10,
     height: 250,
     justifyContent: "center",
     alignItems: "center",

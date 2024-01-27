@@ -10,19 +10,11 @@ import {
   Alert,
 } from "react-native";
 import Header from "../components/Header";
-import { useCallback, useState } from "react";
+
 import YoutubePlayer from "react-native-youtube-iframe";
 function GameDetail({ route }) {
   const selectedGame = route.params.selectedGame;
   console.log(selectedGame);
-  const [playing, setPlaying] = useState(false);
-
-  const onStateChange = useCallback((state) => {
-    if (state === "ended") {
-      setPlaying(false);
-      Alert.alert("video has finished playing!");
-    }
-  }, []);
 
   return (
     <View style={styles.container}>
@@ -49,24 +41,76 @@ function GameDetail({ route }) {
               <Text style={[styles.info_contents_title]}>
                 {selectedGame.title}
               </Text>
-              <Text style={styles.info_contents_detail}>
-                CATEGORY: 3인칭 액션 어드벤처
-              </Text>
-              <Text style={styles.info_contents_detail}>
-                RELEASE DATE: 2019년 3월 22일
-              </Text>
-              <Text style={styles.info_contents_detail}>
-                DEVELOPER:프롬 소프트웨어
-              </Text>
-              <Text style={styles.info_contents_detail}>
-                PUBLISHER:액티비전
-              </Text>
-              <View style={{ marginTop: 30 }}>
+
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  flex: 1,
+                  width: "80%",
+                }}
+              >
+                <Text style={styles.info_contents_detail}>RELEASE DATE</Text>
+                <Text style={styles.info_contents_detail_innerText}>
+                  Oct 26, 2018
+                </Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  flex: 1,
+                  width: "80%",
+                }}
+              >
+                <View style={{ flex: 1 / 2, alignItems: "flex-start" }}>
+                  <Text style={styles.info_contents_detail}>CATEGORY</Text>
+                </View>
+                <View style={{ flex: 1 / 2, alignItems: "flex-start" }}>
+                  <Text style={styles.info_contents_detail_innerText}>
+                    액션
+                  </Text>
+                </View>
+              </View>
+
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  flex: 1,
+                  width: "80%",
+                }}
+              >
+                <View style={{ flex: 1 / 2, alignItems: "flex-start" }}>
+                  <Text style={styles.info_contents_detail}>DEVELOPER</Text>
+                </View>
+                <View style={{ flex: 1 / 2, alignItems: "flex-start" }}>
+                  <Text style={styles.info_contents_detail_innerText}>
+                    프롬 소프트웨어
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  flex: 1,
+                  width: "80%",
+                }}
+              >
+                <View style={{ flex: 1 / 2, alignItems: "flex-end" }}>
+                  <Text style={styles.info_contents_detail}>PUBLISHER</Text>
+                </View>
+                <View style={{ flex: 1 / 2, alignItems: "flex-start" }}>
+                  <Text style={styles.info_contents_detail_innerText}>
+                    액티비전
+                  </Text>
+                </View>
+              </View>
+              <View style={{ height: videoHeight }}>
                 <YoutubePlayer
-                  height={300}
-                  play={playing}
+                  height={"100%"}
                   videoId={"4OgoTZXPACo"}
-                  onChangeState={onStateChange}
                   webViewStyle={{ opacity: 0.99 }}
                 />
               </View>
@@ -79,7 +123,8 @@ function GameDetail({ route }) {
 }
 
 export default GameDetail;
-const deviceHeight = Dimensions.get("window").height;
+const deviceWidth = Dimensions.get("window").width;
+const videoHeight = (deviceWidth / 16) * 9;
 
 const styles = StyleSheet.create({
   container: {
@@ -110,8 +155,16 @@ const styles = StyleSheet.create({
     borderBottomColor: "white",
   },
   info_contents_detail: {
-    color: "white",
+    color: "#BDBDBD",
+    fontSize: 15,
     paddingVertical: 5,
+
+    marginRight: 8,
+  },
+  info_contents_detail_innerText: {
+    color: "white",
+
+    fontSize: 15,
   },
   header_black: {
     backgroundColor: "#212121",
