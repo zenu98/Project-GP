@@ -1,15 +1,36 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import Header from "./Header";
+import { useDispatch, useSelector } from "react-redux";
+import { filterPlatform } from "../store/types";
 function NavigationBar() {
+  const platformList = useSelector(
+    (state) => state.gameData.platforms.platform
+  );
+  const selectedPlatform = useSelector((state) => state.filteredGames.platform);
+  console.log(selectedPlatform);
+  const dispatch = useDispatch();
+  const pressHandler = (key) => {
+    dispatch(filterPlatform({ platform: key }));
+  };
+  console.log("PLATFORM", platformList);
   return (
     <View style={styles.navContainer}>
       <Header />
       <View style={styles.navContainer_bottom}>
-        <Text>PC</Text>
-        <Text>XBox</Text>
-        <Text>PS5</Text>
-        <Text>Switch</Text>
+        {platformList.map((item) => {
+          return (
+            <Pressable
+              key={item}
+              style={styles.platform_btn}
+              onPress={() => pressHandler(item)}
+            >
+              <View>
+                <Text>{item}</Text>
+              </View>
+            </Pressable>
+          );
+        })}
       </View>
     </View>
   );
@@ -31,6 +52,13 @@ const styles = StyleSheet.create({
     borderColor: "#E4E4E4",
 
     borderBottomWidth: 1,
+  },
+  platform_btn: {
+    flex: 1,
+    padding: 10,
+
+    marginHorizontal: 5,
+    alignItems: "center",
   },
   text: {
     textAlign: "center",

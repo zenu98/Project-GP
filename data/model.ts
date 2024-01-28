@@ -1,25 +1,33 @@
+interface GameInfo {
+  title: string;
+  category: Category;
+  image?: string;
+  publisher: string;
+  developer: string;
+  video?: string;
+  date?: string;
+}
+
 export interface Category {
   text: string;
   genre: string;
 }
-
-interface GameInfo {
-  title: string;
-  category: Category;
-  image: string;
-  publisher: string;
-  developer: string;
-  video: string;
-  date: string;
+export interface PlatForm {
+  platform: string[];
 }
 
-interface GameDatas {
+interface GamesOfMonth {
   date: string;
-  data: {
-    list: GameInfo[];
-  }[];
+  games: Record<string, GameInfo>;
 }
 
-export interface GameList {
-  GameList: GameDatas[];
+interface GameModel {
+  [monthId: string]: GamesOfMonth;
+}
+
+export interface List {
+  PC: GameModel;
+  XBOX: GameModel;
+  PS5: GameModel;
+  Switch: GameModel;
 }
