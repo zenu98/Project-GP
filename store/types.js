@@ -5,6 +5,7 @@ const typeSlice = createSlice({
   initialState: {
     type: "all",
     platform: "PC",
+    tagModal: false,
   },
   reducers: {
     filterGames: (state, action) => {
@@ -13,9 +14,13 @@ const typeSlice = createSlice({
     filterPlatform: (state, action) => {
       state.platform = action.payload.platform;
     },
+    setModal: (state, action) => {
+      state.tagModal = !state.tagModal;
+    },
   },
 });
 
 export const filterGames = typeSlice.actions.filterGames;
+export const setModal = typeSlice.actions.setModal;
 export const filterPlatform = typeSlice.actions.filterPlatform;
 export default typeSlice.reducer;

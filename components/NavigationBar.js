@@ -26,7 +26,13 @@ function NavigationBar() {
               onPress={() => pressHandler(item)}
             >
               <View>
-                <Text>{item}</Text>
+                <Text
+                  style={
+                    selectedPlatform === item && styles.platform_btn_pressed
+                  }
+                >
+                  {item}
+                </Text>
               </View>
             </Pressable>
           );
@@ -56,9 +62,13 @@ const styles = StyleSheet.create({
   platform_btn: {
     flex: 1,
     padding: 10,
-
     marginHorizontal: 5,
     alignItems: "center",
+  },
+  platform_btn_pressed: {
+    color: "#1864ab",
+    fontSize: 20,
+    fontWeight: "bold",
   },
   text: {
     textAlign: "center",

@@ -138,10 +138,22 @@ export const category: Category[] = [
   { text: "인디", genre: "indie" },
   { text: "액션", genre: "action" },
   { text: "어드벤처", genre: "adventure" },
+  { text: "전략", genre: "strategy" },
   { text: "캐주얼", genre: "casual" },
   { text: "RPG", genre: "rpg" },
   { text: "시뮬레이션", genre: "simulation" },
-  { text: "전략", genre: "strategy" },
+  { text: "싱글 플레이어", genre: "single" },
+  { text: "2D", genre: "2D" },
+  { text: "3D", genre: "3D" },
+  { text: "판타지", genre: "fantasy" },
+  { text: "멀티 플레이어", genre: "multy-player" },
+  { text: "퍼즐", genre: "puzzle" },
+  { text: "픽셀 그래픽", genre: "pixel" },
+  { text: "MMO", genre: "MMO" },
+  { text: "1인칭", genre: "first-person" },
+  { text: "전투", genre: "combat" },
+  { text: "아케이드", genre: "arcade" },
+  { text: "레이싱", genre: "racing" },
 ];
 
 export const platform: PlatForm = {

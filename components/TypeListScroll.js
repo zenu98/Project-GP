@@ -7,29 +7,32 @@ import {
   View,
   Dimensions,
 } from "react-native";
-import { category } from "../data/dummy-data";
-import { useEffect, useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
-import { filterGames } from "../store/types";
-const TypeListScroll = (props) => {
+import { filterGames, setModal } from "../store/types";
+const TypeListScroll = () => {
   const gameType = useSelector((state) => state.filteredGames.type);
+  const categoryList = useSelector((state) => state.gameData.category);
   const dispatch = useDispatch();
 
   const pressHandler = (key) => {
     dispatch(filterGames({ type: key }));
   };
+  const modalHandler = () => {
+    dispatch(setModal());
+  };
 
   return (
     <View style={styles.all_container}>
-      <View>
+      <Pressable onPress={modalHandler}>
         <Text style={styles.tagText}>Tag</Text>
-      </View>
+      </Pressable>
       <ScrollView
         contentContainerStyle={styles.menuContainer_title}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
       >
-        {category.map((item) => (
+        {categoryList.map((item) => (
           <Pressable
             onPress={() => pressHandler(item.genre)}
             key={item.genre}
