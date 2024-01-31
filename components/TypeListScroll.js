@@ -7,7 +7,7 @@ import {
   View,
   Dimensions,
 } from "react-native";
-
+import { AntDesign } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { filterGames, setModal } from "../store/types";
 const TypeListScroll = () => {
@@ -24,9 +24,22 @@ const TypeListScroll = () => {
 
   return (
     <View style={styles.all_container}>
-      <Pressable onPress={modalHandler}>
-        <Text style={styles.tagText}>Tag</Text>
+      <Pressable
+        onPress={modalHandler}
+        style={{
+          padding: 10,
+        }}
+      >
+        <AntDesign
+          name="search1"
+          size={24}
+          color="black"
+          style={{
+            transform: [{ scaleX: -1 }],
+          }}
+        />
       </Pressable>
+      <Text style={{ marginRight: 5 }}>|</Text>
       <ScrollView
         contentContainerStyle={styles.menuContainer_title}
         horizontal={true}
@@ -61,16 +74,15 @@ const styles = StyleSheet.create({
   all_container: {
     flex: 1,
     flexDirection: "row",
-    backgroundColor: "#fff",
+    backgroundColor: "white",
     alignItems: "center",
-    paddingHorizontal: 10,
+
     borderBottomWidth: 1,
     borderColor: "#D2D2D2",
   },
   menuContainer_title: {
     height: 50,
     alignItems: "center",
-    paddingHorizontal: 10,
   },
   type_container: {
     flex: 1,
@@ -78,7 +90,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 5,
     height: 30,
-    margin: 8,
+    marginRight: 8,
     borderRadius: 4,
   },
   type_container_pressed: {

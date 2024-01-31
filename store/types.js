@@ -14,7 +14,7 @@ const typeSlice = createSlice({
     filterPlatform: (state, action) => {
       state.platform = action.payload.platform;
     },
-    setModal: (state, action) => {
+    setModal: (state) => {
       state.tagModal = !state.tagModal;
     },
   },

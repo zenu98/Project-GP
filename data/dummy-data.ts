@@ -6,11 +6,17 @@ export const ListOfGames: List = {
       date: "2021년3월",
       games: {
         sekiro: {
-          title: "g",
-          category: {
-            text: "액션",
-            genre: "action",
-          },
+          title: "세키로: 섀도우 다이 트와이스",
+          category: [
+            {
+              text: "액션",
+              genre: "action",
+            },
+            {
+              text: "어드벤쳐",
+              genre: "adventure",
+            },
+          ],
           image:
             "https://i.namu.wiki/i/XBT_2sAAccqYd9BUEg5ziDinjeWUB520wR5JoYIwiucihNUAhfPV8lgGmEqJN8Cm9lUycj8yW_dTdXJDcOhAKGIRFyCJSzpRWe5wiVMVRRtDeR3G_E60n0QFuCOHi6_0OWpeDXHInP1CiPPT4Sk4qw.webp",
           publisher: "",
@@ -19,12 +25,15 @@ export const ListOfGames: List = {
           date: "",
         },
         tekken: {
-          title: "g",
-          category: {
-            text: "액션",
-            genre: "action",
-          },
-          image: "../images/sekiro.webp",
+          title: "철권8",
+          category: [
+            {
+              text: "인디",
+              genre: "indie",
+            },
+          ],
+          image:
+            "https://i.namu.wiki/i/TF69o35ZrzH78cPnu2jDGiLoKdySJSZZef_xsjm1jyj4YT-q0Jm_qBbhDhsliYbAHlyINMIRqVkRPF6dKa-EpwLWT5zEv_4jvf3LJO46bpfNNBOyrFckrDdtV3KALCDe2nlxMNa6fxBmv-RAlR4eNw.webp",
           publisher: "",
           developer: "",
           video: "",
@@ -37,10 +46,12 @@ export const ListOfGames: List = {
       games: {
         sekiro: {
           title: "g",
-          category: {
-            text: "액션",
-            genre: "action",
-          },
+          category: [
+            {
+              text: "액션",
+              genre: "action",
+            },
+          ],
           image: "../images/sekiro.webp",
           publisher: "",
           developer: "",
@@ -49,10 +60,12 @@ export const ListOfGames: List = {
         },
         tekken: {
           title: "g",
-          category: {
-            text: "액션",
-            genre: "action",
-          },
+          category: [
+            {
+              text: "액션",
+              genre: "action",
+            },
+          ],
           image: "../images/sekiro.webp",
           publisher: "",
           developer: "",
@@ -61,10 +74,12 @@ export const ListOfGames: List = {
         },
         tekkens: {
           title: "g",
-          category: {
-            text: "액션",
-            genre: "action",
-          },
+          category: [
+            {
+              text: "액션",
+              genre: "action",
+            },
+          ],
           image: "../images/sekiro.webp",
           publisher: "",
           developer: "",
@@ -80,10 +95,12 @@ export const ListOfGames: List = {
       games: {
         tekkens: {
           title: "g",
-          category: {
-            text: "액션",
-            genre: "action",
-          },
+          category: [
+            {
+              text: "액션",
+              genre: "action",
+            },
+          ],
           image: "../images/sekiro.webp",
           publisher: "",
           developer: "",
@@ -99,10 +116,12 @@ export const ListOfGames: List = {
       games: {
         tekkens: {
           title: "g",
-          category: {
-            text: "액션",
-            genre: "action",
-          },
+          category: [
+            {
+              text: "액션",
+              genre: "action",
+            },
+          ],
           image: "../images/sekiro.webp",
           publisher: "",
           developer: "",
@@ -118,10 +137,12 @@ export const ListOfGames: List = {
       games: {
         tekkens: {
           title: "g",
-          category: {
-            text: "액션",
-            genre: "action",
-          },
+          category: [
+            {
+              text: "액션",
+              genre: "action",
+            },
+          ],
           image: "../images/sekiro.webp",
           publisher: "",
           developer: "",

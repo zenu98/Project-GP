@@ -12,13 +12,17 @@ function List({ navigation }) {
   const filteredData = (data) => {
     if (gameType === "all") return data;
     else {
-      return data.filter((item) => item?.category.genre === gameType);
+      const filteredItems = data.filter((item) =>
+        item.category.some((category) => category.genre.includes(gameType))
+      );
+      return filteredItems;
     }
   };
 
   const filteredSections = gameData
     .filter((item) => {
       const realItems = filteredData(Object.values(item.games));
+
       return realItems && realItems.length > 0;
     })
     .map((filtered) => {

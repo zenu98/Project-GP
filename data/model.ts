@@ -1,6 +1,6 @@
 interface GameInfo {
   title: string;
-  category: Category;
+  category: Category[];
   image?: string;
   publisher: string;
   developer: string;

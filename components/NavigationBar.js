@@ -13,7 +13,7 @@ function NavigationBar() {
   const pressHandler = (key) => {
     dispatch(filterPlatform({ platform: key }));
   };
-  console.log("PLATFORM", platformList);
+
   return (
     <View style={styles.navContainer}>
       <Header />
@@ -22,18 +22,20 @@ function NavigationBar() {
           return (
             <Pressable
               key={item}
-              style={styles.platform_btn}
+              style={[
+                styles.platform_btn,
+                selectedPlatform === item && styles.platform_btn_pressed,
+              ]}
               onPress={() => pressHandler(item)}
             >
-              <View>
-                <Text
-                  style={
-                    selectedPlatform === item && styles.platform_btn_pressed
-                  }
-                >
-                  {item}
-                </Text>
-              </View>
+              <Text
+                style={[
+                  styles.platform_btn_text,
+                  selectedPlatform === item && styles.platform_btn_text_pressed,
+                ]}
+              >
+                {item}
+              </Text>
             </Pressable>
           );
         })}
@@ -61,13 +63,23 @@ const styles = StyleSheet.create({
   },
   platform_btn: {
     flex: 1,
-    padding: 10,
+    height: "100%",
+    justifyContent: "center",
+    paddingHorizontal: 10,
     marginHorizontal: 5,
     alignItems: "center",
   },
   platform_btn_pressed: {
-    color: "#1864ab",
-    fontSize: 20,
+    borderBottomColor: "black",
+    borderBottomWidth: 1,
+  },
+  platform_btn_text: {
+    color: "#5D5D5D",
+    fontSize: 16,
+  },
+  platform_btn_text_pressed: {
+    color: "#070707",
+
     fontWeight: "bold",
   },
   text: {
