@@ -19,10 +19,10 @@ export const ListOfGames: List = {
           ],
           image:
             "https://i.namu.wiki/i/XBT_2sAAccqYd9BUEg5ziDinjeWUB520wR5JoYIwiucihNUAhfPV8lgGmEqJN8Cm9lUycj8yW_dTdXJDcOhAKGIRFyCJSzpRWe5wiVMVRRtDeR3G_E60n0QFuCOHi6_0OWpeDXHInP1CiPPT4Sk4qw.webp",
-          publisher: "",
-          developer: "",
+          publisher: "액티비전",
+          developer: "프롬 소프트웨어",
           video: "",
-          date: "",
+          date: "2021년 3월",
         },
         tekken: {
           title: "철권8",

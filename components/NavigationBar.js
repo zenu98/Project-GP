@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import Header from "./Header";
 import { useDispatch, useSelector } from "react-redux";
 import { filterPlatform } from "../store/types";
-function NavigationBar() {
+function NavigationBar({ navigation }) {
   const platformList = useSelector(
     (state) => state.gameData.platforms.platform
   );
@@ -16,7 +16,7 @@ function NavigationBar() {
 
   return (
     <View style={styles.navContainer}>
-      <Header />
+      <Header navigation={navigation} />
       <View style={styles.navContainer_bottom}>
         {platformList.map((item) => {
           return (

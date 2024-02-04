@@ -1,22 +1,30 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons";
-function Header({ customStyle, textStyle, logoStyle }) {
+function Header({ customStyle, textStyle, logoStyle, navigation }) {
+  const goCalendarHandler = () => {
+    navigation.navigate("GameCalendar");
+  };
+  const goAuthScreenHandler = () => {
+    navigation.navigate("AuthScreen");
+  };
   return (
     <View style={[styles.navContainer_top, customStyle]}>
       <Text style={[styles.text_Title, textStyle]}>게임플래너</Text>
       <View style={styles.navContainer_top_contents}>
-        <View style={{ paddingHorizontal: 20 }}>
+        <Pressable
+          style={{ paddingHorizontal: 20 }}
+          onPress={goCalendarHandler}
+        >
           <AntDesign
             size={30}
             style={[styles.logo, logoStyle]}
             name="calendar"
           />
-        </View>
-
-        <View>
+        </Pressable>
+        <Pressable onPress={goAuthScreenHandler}>
           <Octicons name="person" size={30} style={[styles.logo, logoStyle]} />
-        </View>
+        </Pressable>
       </View>
     </View>
   );

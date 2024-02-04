@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Project-GP",
+    "name": "GamePlanner",
     "slug": "Project-GP",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -11,13 +11,12 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -26,6 +25,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "78965ed6-fb8b-4b7a-bdd6-24dd79cf6b30"
+      }
     }
   }
 }

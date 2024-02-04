@@ -22,7 +22,6 @@ function List({ navigation }) {
   const filteredSections = gameData
     .filter((item) => {
       const realItems = filteredData(Object.values(item.games));
-
       return realItems && realItems.length > 0;
     })
     .map((filtered) => {

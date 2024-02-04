@@ -14,7 +14,17 @@ import Header from "../components/Header";
 import YoutubePlayer from "react-native-youtube-iframe";
 function GameDetail({ route }) {
   const selectedGame = route.params.selectedGame;
-  console.log(selectedGame);
+
+  const detailInfo = [
+    { id: 1, key: "RELEASE DATE", value: selectedGame.date },
+    {
+      id: 2,
+      key: "CATEGORY",
+      value: selectedGame.category.map((item) => item.text).join(" "),
+    },
+    { id: 3, key: "DEVELOPER", value: selectedGame.developer },
+    { id: 4, key: "PUBLISHER", value: selectedGame.publisher },
+  ];
 
   return (
     <View style={styles.container}>
@@ -41,72 +51,28 @@ function GameDetail({ route }) {
               <Text style={[styles.info_contents_title]}>
                 {selectedGame.title}
               </Text>
-
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  flex: 1,
-                  width: "80%",
-                }}
-              >
-                <Text style={styles.info_contents_detail}>RELEASE DATE</Text>
-                <Text style={styles.info_contents_detail_innerText}>
-                  Oct 26, 2018
-                </Text>
-              </View>
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  flex: 1,
-                  width: "80%",
-                }}
-              >
-                <View style={{ flex: 1 / 2, alignItems: "flex-start" }}>
-                  <Text style={styles.info_contents_detail}>CATEGORY</Text>
-                </View>
-                <View style={{ flex: 1 / 2, alignItems: "flex-start" }}>
-                  <Text style={styles.info_contents_detail_innerText}>
-                    액션
-                  </Text>
-                </View>
+              <View style={{ padding: 10 }}>
+                {detailInfo.map((item) => (
+                  <View key={item.id} style={styles.info_contents_list}>
+                    <View style={{ flex: 0.4, alignItems: "flex-start" }}>
+                      <Text style={styles.info_contents_detail}>
+                        {item.key}
+                      </Text>
+                    </View>
+                    <View
+                      style={{
+                        flex: 0.6,
+                        alignItems: "flex-start",
+                      }}
+                    >
+                      <Text style={styles.info_contents_detail_innerText}>
+                        {item.value}
+                      </Text>
+                    </View>
+                  </View>
+                ))}
               </View>
 
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  flex: 1,
-                  width: "80%",
-                }}
-              >
-                <View style={{ flex: 1 / 2, alignItems: "flex-start" }}>
-                  <Text style={styles.info_contents_detail}>DEVELOPER</Text>
-                </View>
-                <View style={{ flex: 1 / 2, alignItems: "flex-start" }}>
-                  <Text style={styles.info_contents_detail_innerText}>
-                    프롬 소프트웨어
-                  </Text>
-                </View>
-              </View>
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  flex: 1,
-                  width: "80%",
-                }}
-              >
-                <View style={{ flex: 1 / 2, alignItems: "flex-end" }}>
-                  <Text style={styles.info_contents_detail}>PUBLISHER</Text>
-                </View>
-                <View style={{ flex: 1 / 2, alignItems: "flex-start" }}>
-                  <Text style={styles.info_contents_detail_innerText}>
-                    액티비전
-                  </Text>
-                </View>
-              </View>
               <View style={{ height: videoHeight }}>
                 <YoutubePlayer
                   height={"100%"}
@@ -127,6 +93,10 @@ const deviceWidth = Dimensions.get("window").width;
 const videoHeight = (deviceWidth / 16) * 9;
 
 const styles = StyleSheet.create({
+  info_contents_list: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
   container: {
     flex: 1,
     backgroundColor: "#fff",

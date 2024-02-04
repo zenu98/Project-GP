@@ -9,7 +9,7 @@ function GameList({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.nav_Container}>
-        <NavigationBar />
+        <NavigationBar navigation={navigation} />
       </View>
       <View style={styles.listContainer}>
         <List navigation={navigation} />
