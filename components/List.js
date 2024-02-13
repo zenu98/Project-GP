@@ -2,12 +2,31 @@ import { StyleSheet, Text, View, FlatList, SectionList } from "react-native";
 import TypeListScroll from "./TypeListScroll";
 import { useSelector } from "react-redux";
 import renderListItem from "./RenderListItem";
-
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { fetchData, example } from "../util/api";
+import { useEffect } from "react";
 function List({ navigation }) {
   const gameType = useSelector((state) => state.filteredGames.type);
   const gameListData = useSelector((state) => state.gameData.datas);
   const selectedPlatform = useSelector((state) => state.filteredGames.platform);
-  const gameData = Object.values(gameListData[selectedPlatform]);
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["ListOfGames"],
+    queryFn: fetchData,
+  });
+  if (isLoading) {
+    return console.log("Loading...");
+  }
+  if (isError) {
+    return console.log("Error", isError);
+  }
+
+  const gameData = data[selectedPlatform];
+
+  // const { data, fetchNextPage, hasNextPage } = useInfiniteQuery({
+  //   queryKey: ["ListOfGames"],
+  //   queryFn: ({ pageParam = initialUrl}) => fetchData(pageParam),
+  //   getNextPageParam:()
+  // });
 
   const filteredData = (data) => {
     if (gameType === "all") return data;
@@ -46,8 +65,14 @@ function List({ navigation }) {
         />
       )}
       renderSectionHeader={({ section }) => (
-        <View>
-          <Text style={{ marginLeft: 16, marginTop: 16, fontSize: 16 }}>
+        <View style={{}}>
+          <Text
+            style={{
+              marginLeft: 16,
+              marginTop: 16,
+              fontSize: 16,
+            }}
+          >
             {section.date}
           </Text>
         </View>

@@ -22,7 +22,7 @@ export const ListOfGames: List = {
           publisher: "액티비전",
           developer: "프롬 소프트웨어",
           video: "",
-          date: "2021년 3월",
+          date: "2024-02-4",
         },
         tekken: {
           title: "철권8",
@@ -37,7 +37,7 @@ export const ListOfGames: List = {
           publisher: "",
           developer: "",
           video: "",
-          date: "",
+          date: "2024-02-6",
         },
       },
     },
@@ -72,7 +72,7 @@ export const ListOfGames: List = {
           video: "",
           date: "",
         },
-        tekkens: {
+        tekkenss: {
           title: "g",
           category: [
             {

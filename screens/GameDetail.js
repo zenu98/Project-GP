@@ -14,7 +14,7 @@ import Header from "../components/Header";
 import YoutubePlayer from "react-native-youtube-iframe";
 function GameDetail({ route }) {
   const selectedGame = route.params.selectedGame;
-
+  console.log(selectedGame);
   const detailInfo = [
     { id: 1, key: "RELEASE DATE", value: selectedGame.date },
     {

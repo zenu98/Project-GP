@@ -12,6 +12,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 function renderListItem({ item, navigation }) {
   const { title, image } = item;
+
   const pressHandler = () => {
     navigation.navigate("GameDetail", {
       selectedGame: item,
